@@ -135,7 +135,10 @@ module FbGraph
       when 'null'
         nil
       else
-        _response_ = JSON.parse(response.body).with_indifferent_access
+        # Offsite Pixels return "1234567890" as the format of the response.
+        # Need to parse out the id, and send it back in a hash
+        id = response.body.gsub(/^"|"$/, '').to_i rescue 0
+        _response_ =  id != 0 ? {:id => id} : JSON.parse(response.body).with_indifferent_access
         if (200...300).include?(response.status)
           _response_
         else

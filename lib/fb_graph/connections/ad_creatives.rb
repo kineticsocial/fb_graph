@@ -24,4 +24,3 @@ module FbGraph
     end
   end
 end
-
