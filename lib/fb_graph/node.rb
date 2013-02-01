@@ -134,11 +134,15 @@ module FbGraph
         raise NotFound.new('Graph API returned false, so probably it means your requested object is not found.')
       when 'null'
         nil
-      else
+      when  /^"\d+"$/
         # Offsite Pixels return "1234567890" as the format of the response.
         # Need to parse out the id, and send it back in a hash
-        id = response.body.gsub(/^"|"$/, '').to_i rescue 0
-        _response_ =  id != 0 ? {:id => id} : JSON.parse(response.body).with_indifferent_access
+        _response_ = Struct.new(:identifier).new
+        _response_.identifier = response.body.gsub(/^"|"$/, '').to_i
+        _response_
+      else
+        _response_ = JSON.parse(response.body).with_indifferent_access
+
         if (200...300).include?(response.status)
           _response_
         else

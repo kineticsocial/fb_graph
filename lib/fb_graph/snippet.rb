@@ -1,6 +1,6 @@
 module FbGraph
   class Snippet < Node
-    attr_accessor :value
+    attr_accessor :value, :js
 
     def initialize(identifier, attributes = {})
       super
@@ -10,7 +10,7 @@ module FbGraph
     protected
 
     def set_attrs(attributes)
-      %w(value).each do |field|
+      %w(value js).each do |field|
         send("#{field}=", attributes[field.to_sym])
       end
     end

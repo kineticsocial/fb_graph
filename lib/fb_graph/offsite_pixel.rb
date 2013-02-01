@@ -1,6 +1,6 @@
 module FbGraph
   class OffsitePixel < Node
-    include Connections::OffsitePixels
+    include Connections::Snippets
     
     attr_accessor :name, :tag
 
