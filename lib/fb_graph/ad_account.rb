@@ -35,7 +35,8 @@ module FbGraph
       :vat_status,
       :agency_client_declaration,
       :spend_cap,
-      :amount_spent
+      :amount_spent,
+      :balance
     ]
 
     attr_accessor *ATTRS
