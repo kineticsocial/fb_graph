@@ -2,7 +2,8 @@ module FbGraph
   class AdGroupStat < Node
     ATTRS = [:start_time, :end_time, :adgroup_id, :campaign_id, :impressions, :clicks, :spent, 
       :social_impressions, :social_clicks, :social_spent, :actions, :unique_impressions,
-      :social_unique_impressions, :unique_clicks, :social_unique_clicks, :connections, :newsfeed_position]
+      :social_unique_impressions, :unique_clicks, :social_unique_clicks, :connections, :newsfeed_position,
+      :inline_actions]
 
     attr_accessor *ATTRS
 
