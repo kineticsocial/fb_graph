@@ -140,6 +140,7 @@ require 'fb_graph/batch_request'
 require 'fb_graph/batch_update'
 require 'fb_graph/offsite_pixel'
 require 'fb_graph/snippet'
+require 'fb_graph/custom_audience'
 
 # Load after FbGraph::User
 require 'fb_graph/ad_user'
