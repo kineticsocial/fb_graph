@@ -16,7 +16,7 @@ module FbGraph
       308 => "Post in Group",
       nil => "Unknown"
     }
-    ATTRS = [:post_id, :likes, :share_count, :comments, :viewer_id, :app_id, 
+    ATTRS = [:post_id, :likes, :share_count, :comment_info, :viewer_id, :app_id, 
         :updated_time, :created_time, :filter_key, :attribution, :actor_id, :target_id,
         :message, :app_data, :action_links, :attachment, :impressions, :place, :description, :type]
 
