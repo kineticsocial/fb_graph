@@ -4,6 +4,7 @@ require 'patch/rack/oauth2/util'
 require 'patch/rack/oauth2/client'
 require 'patch/rack/oauth2/access_token'
 
+
 module FbGraph
   VERSION = ::File.read(
     ::File.join(::File.dirname(__FILE__), '../VERSION')
@@ -144,6 +145,7 @@ require 'fb_graph/offsite_pixel'
 require 'fb_graph/snippet'
 require 'fb_graph/custom_audience'
 require 'fb_graph/partner_category'
+require 'fb_graph/review'
 
 # Load after FbGraph::User
 require 'fb_graph/ad_user'
