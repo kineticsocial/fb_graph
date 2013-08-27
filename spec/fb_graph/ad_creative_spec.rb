@@ -7,14 +7,12 @@ describe FbGraph::AdCreative, '.new' do
       :id => '6003590469668',
       :view_tag => "",
       :alt_view_tags => [],
-      :creative_id => "6003590469668",
       :type => 1,
       :title => "Some Creative",
       :body => "The Body",
       :image_hash => "4c34b48cdcbf5dd3055acb717343a9d6",
       :link_url => "http://www.google.com/",
       :name => "Creative Name",
-      :run_status => 1,
       :preview_url => "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668",
       :count_current_adgroups => 1,
       :object_id => 12345,
@@ -30,14 +28,12 @@ describe FbGraph::AdCreative, '.new' do
     ad_creative.identifier.should == "6003590469668"
     ad_creative.view_tag.should == ""
     ad_creative.alt_view_tags.should == []
-    ad_creative.creative_id.should == "6003590469668"
     ad_creative.type.should == 1
     ad_creative.title.should == "Some Creative"
     ad_creative.body.should == "The Body"
     ad_creative.image_hash.should == "4c34b48cdcbf5dd3055acb717343a9d6"
     ad_creative.link_url.should == "http://www.google.com/"
     ad_creative.name.should == "Creative Name"
-    ad_creative.run_status.should == 1
     ad_creative.preview_url.should == "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668"
     ad_creative.count_current_adgroups.should == 1
     ad_creative.facebook_object_id.should == 12345
@@ -58,14 +54,12 @@ end
        ad_creative.identifier.should == "6003590469668"
        ad_creative.view_tag.should == ""
        ad_creative.alt_view_tags.should == []
-       ad_creative.creative_id.should == "6003590469668"
        ad_creative.type.should == 1
        ad_creative.title.should == "Some Creative"
        ad_creative.body.should == "The Body"
        ad_creative.image_hash.should == "4c34b48cdcbf5dd3055acb717343a9d6"
        ad_creative.link_url.should == "http://www.google.com/"
        ad_creative.name.should == "Creative Name"
-       ad_creative.run_status.should == 1
        ad_creative.preview_url.should == "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668"
        ad_creative.count_current_adgroups.should == 1
        ad_creative.image_url.should == "https://www.google.com/image.png"
