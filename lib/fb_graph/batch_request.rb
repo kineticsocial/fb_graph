@@ -1,7 +1,7 @@
 module FbGraph
   # Batch Request
   class BatchRequest < BatchBase
-    attr_accessor :objects, :errors, :root_errors
+    attr_accessor :objects, :errors, :root_errors, :fields
     
     # Initialize object and run request
     def initialize(access_token, facebook_ids, options = {})
@@ -9,6 +9,7 @@ module FbGraph
       self.objects = []
       self.errors = []
       self.root_errors = []
+      self.fields = options.delete(:fields)
       timeout_and_retry { request(facebook_ids) } 
     end
     
@@ -18,7 +19,11 @@ module FbGraph
       return if facebook_ids.blank?
       
       # Params for batch
-      params = {:batch => facebook_ids.collect{|id| {:relative_url => id.to_s}}}
+      params = {:batch => facebook_ids.collect{|id| 
+        url = id.to_s
+        url += "?fields=#{fields.join(",")}" if fields.present?
+        {:relative_url => url}}
+      }
       
       begin
         # Was there nils returned in the request
