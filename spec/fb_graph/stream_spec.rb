@@ -57,7 +57,7 @@ describe FbGraph::Stream, '.new' do
   its(:identifier)          { should == attributes[:post_id]  }
   its(:likes)               { should == attributes[:likes]    }
   its(:share_count)         { should == attributes[:share_count] }
-  its(:comments)            { should == attributes[:comments] }
+  its(:comment_info)        { should == attributes[:comment_info] }
   its(:viewer_id)           { should == attributes[:viewer_id] }
   its(:updated_time)        { should == attributes[:updated_time] }
   its(:created_time)        { should == attributes[:created_time] }
