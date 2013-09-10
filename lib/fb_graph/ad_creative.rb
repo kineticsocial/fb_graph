@@ -12,7 +12,6 @@ module FbGraph
       :link_url,
       :name,
       :preview_url,
-      :count_current_adgroups,
       :facebook_object_id, # can't use object_id since it's a core ruby method
       :story_id,
       :image_url,

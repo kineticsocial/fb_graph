@@ -18,7 +18,6 @@ describe FbGraph::Connections::AdGroups, '#ad_creatives' do
           ad_creative.link_url.should == "http://www.google.com/"
           ad_creative.name.should == "Creative Name"
           ad_creative.preview_url.should == "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668"
-          ad_creative.count_current_adgroups.should == 1
           ad_creative.image_url.should == "https://www.google.com/image.png"
         end
       end

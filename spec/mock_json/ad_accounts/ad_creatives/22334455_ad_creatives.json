@@ -11,7 +11,6 @@
       "link_url": "http://example.com", 
       "name": "Test Name 965", 
       "preview_url": "https://www.facebook.com/ads/api/creative_preview.php?cid=6004240658664", 
-      "count_current_adgroups": 0, 
       "id": "6004240658664", 
       "image_url": "https://fbcdn-creative-a.akamaihd.net/ads-ak-snc7/v41818/flyers/67/56/13315662071571173748_1_f319d970.jpg"
     },   
@@ -27,7 +26,6 @@
       "object_id": 229631577118807, 
       "name": "Test Name 285-00", 
       "preview_url": "https://www.facebook.com/ads/api/creative_preview.php?cid=6004240721664", 
-      "count_current_adgroups": 0, 
       "id": "6004240721664", 
       "image_url": "https://fbcdn-creative-a.akamaihd.net/ads-ak-snc7/v41818/flyers/67/56/13315662071571173748_1_f319d970.jpg"
     }, 
@@ -43,7 +41,6 @@
       "object_id": 213445832076048, 
       "name": "Test Name 985-02", 
       "preview_url": "https://www.facebook.com/ads/api/creative_preview.php?cid=6004240725864", 
-      "count_current_adgroups": 0, 
       "id": "6004240725864", 
       "image_url": "https://fbcdn-creative-a.akamaihd.net/ads-ak-snc7/v41818/flyers/67/56/13315662071571173748_1_f319d970.jpg"
     }, 
@@ -61,8 +58,7 @@
       "cluster_id": 6004110565664, 
       "name": "Sponsored story #6005658093464", 
       "preview_url": "https://www.facebook.com/ads/api/creative_preview.php?cid=6005658093464", 
-      "count_current_adgroups": 3, 
-      "id": "6005658093464", 
+      "id": "6005658093464" 
     }, 
     {
       "object_id": "229631577118807", 
@@ -73,8 +69,7 @@
       "related_fan_page": 1, 
       "action_t": "BgABAQcIAAZQMnKgCgAJAAAAAImt0MwKABAAANDZRJVYVw0AGgYKAAAADQEKAAAAAAAAAFAAuAAAnhWBaqmdALkAAAAAAAAAZAC6ACQQUaIoNxYCIwAAAAAAAAAIAMMAAABQIpXpSQG7AAAAAAAAAGoACgAAAACJrdDMAcoAAJ4VgWqpnQEeAAAAAFGPXrQAAQAAnhWBaqmdAbYAAAAAUDJyoAHkAACeFYFqqZ0NABsGCwAAAAFAAwAAAHtodHRwOi8veW91dHUuYmUvM2JNU1JYSzc4a1Ugb29vb28gWW91VHViZSAtIEJyb2FkY2FzdCBZb3Vyc2VsZi4gb29vb28gU2hhcmUgeW91ciB2aWRlb3Mgd2l0aCBmcmllbmRzLCBmYW1pbHksIGFuZCB0aGUgd29ybGQKABwAAJ4VgWqpnQA=", 
       "preview_url": "https://www.facebook.com/ads/api/creative_preview.php?cid=6005487024464", 
-      "count_current_adgroups": 1, 
-      "id": "6005487024464", 
+      "id": "6005487024464"
     }
   ], 
   "limit": 500, 

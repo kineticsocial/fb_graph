@@ -14,7 +14,6 @@ describe FbGraph::AdCreative, '.new' do
       :link_url => "http://www.google.com/",
       :name => "Creative Name",
       :preview_url => "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668",
-      :count_current_adgroups => 1,
       :object_id => 12345,
       :story_id => 54321,
       :image_url => "https://www.google.com/image.png",
@@ -35,7 +34,6 @@ describe FbGraph::AdCreative, '.new' do
     ad_creative.link_url.should == "http://www.google.com/"
     ad_creative.name.should == "Creative Name"
     ad_creative.preview_url.should == "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668"
-    ad_creative.count_current_adgroups.should == 1
     ad_creative.facebook_object_id.should == 12345
     ad_creative.image_url.should == "https://www.google.com/image.png"
     ad_creative.url_tags.should == "url=tags"
@@ -61,7 +59,6 @@ end
        ad_creative.link_url.should == "http://www.google.com/"
        ad_creative.name.should == "Creative Name"
        ad_creative.preview_url.should == "http://www.facebook.com/ads/api/creative_preview.php?cid=6003590469668"
-       ad_creative.count_current_adgroups.should == 1
        ad_creative.image_url.should == "https://www.google.com/image.png"
      end
    end
