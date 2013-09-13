@@ -21,6 +21,18 @@ describe FbGraph::Connections::Friends, '#friends' do
         end
       end
     end
+    
+    context 'when identifier is not me return access token' do
+      it 'should raise FbGraph::Unauthorized' do
+        mock_graph :get, 'arjun/friends', 'users/friends/arjun_private', :access_token => 'invalid_access_token', :status => [401, 'Unauthorized'] do
+          begin
+            FbGraph::User.new('arjun', :access_token => 'invalid_access_token').friends
+          rescue Exception => e
+           e.access_token.should == 'invalid_access_token'
+          end
+        end
+      end
+    end
 
     context 'when identifier is me and no access_token is given' do
       it 'should raise FbGraph::Unauthorized' do

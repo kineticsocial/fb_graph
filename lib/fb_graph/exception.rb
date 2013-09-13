@@ -1,6 +1,6 @@
 module FbGraph
   class Exception < StandardError
-    attr_accessor :status, :type, :error_code, :error_subcode
+    attr_accessor :status, :type, :error_code, :error_subcode, :access_token
     alias_method :code, :status
 
     class << self
@@ -71,6 +71,8 @@ module FbGraph
 
     def initialize(status, message, details = {})
       @status = status
+      @access_token = details[:access_token] if details.kind_of?(Hash)
+      
       if (error = details.try(:[], :error))
         @type          = error[:type]
         @error_code    = error[:code]

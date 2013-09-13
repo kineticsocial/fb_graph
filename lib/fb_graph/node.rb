@@ -156,7 +156,9 @@ module FbGraph
         if (200...300).include?(response.status)
           _response_
         else
-          Exception.handle_structured_response(response.status, _response_, response.headers)
+          _details = _response_
+          _details[:access_token] = self.access_token if _details.kind_of?(Hash) && self.respond_to?(:access_token)
+          Exception.handle_structured_response(response.status, _details, response.headers)
         end
       end
     rescue MultiJson::DecodeError

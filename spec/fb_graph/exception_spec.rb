@@ -14,12 +14,14 @@ describe FbGraph::Exception do
           :message => 'This is the error message',
           :code => 190,
           :error_subcode => 460
-        }
+        },
+        :access_token => 'testaccesstoken'
       })
       err.code.should == 400
       err.type.should == 'SomeError'
       err.error_code.should == 190
       err.error_subcode.should == 460
+      err.access_token.should == 'testaccesstoken'
     end
   end
 
