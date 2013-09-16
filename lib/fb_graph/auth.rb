@@ -56,7 +56,9 @@ module FbGraph
       self.access_token = client.access_token! :client_auth_body
       self
     rescue Rack::OAuth2::Client::Error => e
-      Exception.handle_response e.status, e.message
+      message = e.message
+      message = e.response[:error][:message] if e.respond_to?(:response) && e.response.kind_of?(Hash) && e.response[:error]
+      Exception.handle_response e.status, message
     end
 
     private
