@@ -57,7 +57,7 @@ module FbGraph
       self
     rescue Rack::OAuth2::Client::Error => e
       message = e.message
-      message = e.response[:error][:message] if e.respond_to?(:response) && e.response.kind_of?(Hash) && e.response[:error]
+      message = e.response[:error][:message] if e.respond_to?(:response) && e.response.kind_of?(Hash) && e.response[:error].kind_of?(Hash)
       Exception.handle_response e.status, message
     end
 
