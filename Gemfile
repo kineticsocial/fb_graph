@@ -5,7 +5,7 @@ platforms :jruby do
 end
 
 group :development do
-  gem 'fb_graph-mock', :git => 'git@github.com:kineticsocial/fb_graph-mock.git'
+  gem 'fb_graph-mock', :path => '/Users/ericvautour/projects/gems/fb_graph-mock' #:git => 'git@github.com:kineticsocial/fb_graph-mock.git'
 end
 
 group :test do
