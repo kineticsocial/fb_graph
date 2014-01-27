@@ -117,5 +117,9 @@ module FbGraph
       end
       _input_token_.introspect access_token
     end
+
+    def self.app(access_token)
+      new("app", :access_token => access_token)
+    end
   end
 end
