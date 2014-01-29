@@ -3,7 +3,7 @@ require 'spec_helper'
 describe FbGraph::AdCampaignGroup, '.new' do
   it 'should setup all supported attributes' do
     attributes = {
-      :id => '6003266501233',
+      :id => '6015568499638',
       :account_id => 12345566,
       :name => "Test Ad Campaign Group",
       :objective => 'PAGE_LIKES',
@@ -11,7 +11,7 @@ describe FbGraph::AdCampaignGroup, '.new' do
       :is_completed => 0
     }
     ad_campaign_group = FbGraph::AdCampaignGroup.new(attributes.delete(:id), attributes)
-    ad_campaign_group.identifier.should == "6003266501233"
+    ad_campaign_group.identifier.should == "6015568499638"
     ad_campaign_group.account_id.should == 12345566
     ad_campaign_group.name.should == 'Test Ad Campaign Group'
     ad_campaign_group.objective.should == 'PAGE_LIKES'
@@ -22,10 +22,10 @@ end
 
 describe FbGraph::AdCampaignGroup, '.fetch' do
   it 'should get the ad campaign group' do
-    mock_graph :get, '6003266501233', 'ad_campaign_groups/test_ad_campaign_group', :access_token => 'access_token' do
-      ad_campaign_group = FbGraph::AdCampaignGroup.fetch('6003266501233', :access_token => 'access_token')
+    mock_graph :get, '6015568499638', 'ad_campaign_groups/test_ad_campaign_group', :access_token => 'access_token' do
+      ad_campaign_group = FbGraph::AdCampaignGroup.fetch('6015568499638', :access_token => 'access_token')
 
-      ad_campaign_group.identifier.should == "6003266501233"
+      ad_campaign_group.identifier.should == "6015568499638"
       ad_campaign_group.account_id.should == 12345566
       ad_campaign_group.name.should == "Test Ad Campaign"
       ad_campaign_group.objective.should == 'PAGE_LIKES'
