@@ -23,7 +23,7 @@ module FbGraph
     protected
 
     def set_attrs(attributes)
-      %w(account_id name daily_budget daily_imps campaign_status lifetime_budget lifetime_imps).each do |field|
+      %w(account_id campaign_group_id name daily_budget daily_imps campaign_status lifetime_budget lifetime_imps).each do |field|
         send("#{field}=", attributes[field.to_sym])
       end
 
