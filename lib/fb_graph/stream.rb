@@ -18,7 +18,7 @@ module FbGraph
     }
     ATTRS = [:post_id, :likes, :share_count, :comment_info, :viewer_id, :app_id, 
         :updated_time, :created_time, :filter_key, :attribution, :actor_id, :target_id,
-        :message, :app_data, :action_links, :attachment, :impressions, :place, :description, :type]
+        :message, :app_data, :action_links, :attachment, :place, :description, :type]
 
     attr_accessor *ATTRS
 
