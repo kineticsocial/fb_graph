@@ -1,5 +1,5 @@
 module FbGraph
-  class AdReportStat < Node
+  class ReportStat < Node
     DATA_COLUMNS = [
       :account_id, #The ad account id
       :account_name, #The ad account name
