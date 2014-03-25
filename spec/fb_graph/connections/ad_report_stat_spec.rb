@@ -4,8 +4,13 @@ describe FbGraph::Connections::AdCampaigns, '#ad_report_stat!' do
   context 'when included by FbGraph::AdAccount' do
     context 'when access_token is given' do
       it 'should create ad_report_stat asyncronized request as FbGraph::AdReportStat' do        
-        mock_graph :post, 'act_12345566/reportstats', 'ad_accounts/ad_report_stats/test_ad_report_stats_async', :params => {:async => "true"}, :access_token => 'access_token' do
-          ad_report_stat = FbGraph::AdAccount.new('act_12345566', :access_token => 'access_token').ad_report_stat!
+        mock_graph :post, 'act_12345566/reportstats', 'ad_accounts/ad_report_stats/test_ad_report_stats_async', :params => {
+          :async => "true",
+          :date_preset => "last_week",
+          :data_columns => "[\"adgroup_id\",\"actions\",\"spend\"]"
+        }, :access_token => 'access_token' do
+          options = {:date_preset => :last_week, :data_columns => [:adgroup_id, :actions, :spend]}
+          ad_report_stat = FbGraph::AdAccount.new('act_12345566', :access_token => 'access_token').ad_report_stat!(options)
           ad_report_stat.should be_instance_of(FbGraph::AdReportStat)
           ad_report_stat.should == FbGraph::AdReportStat.new(
             6018478973531,
