@@ -12,6 +12,12 @@ module FbGraph
     ]
     
     DATA_COLUMNS = [
+      # Demographic
+      :age, #The age range of the people you've reached
+      :country, #The countries where the people reached are located
+      :gender, #Gender of the people reached
+      :placement, #Where ad was shown on Facebook, such as on News Feed on a mobile device or on the right-side of Facebook on a desktop computer
+      
       :actions, #Actions taken within 1 day of viewing or 28 days after clicking an ad
       :actions_1d_click, #Actions taken within 1 day of clicking an ad (by impression time)
       :actions_1d_click_by_convs, #Number of actions within 1 day of clicking an ad (by action/conversion time)
@@ -25,9 +31,7 @@ module FbGraph
       :actions_7d_click_by_convs, #Number of actions within 7 days of clicking an ad (by action/conversion time)
       :actions_7d_view, #Actions taken within 7 days of viewing an ad (by impression time)
       :actions_7d_view_by_convs, #Number of actions within 7 days of viewing an ad (by action/conversion time)
-      :action_target_id,
-      :action_target_name,
-      :action_type,
+      
       :action_values, #Value of actions, credits spent or mobile app actions taken on an ad
       :action_values_1d_click, #Value returned from actions, credits spent or mobile app actions within 1 day of clicking an ad (by impression time)
       :action_values_1d_click_by_convs, #Value returned from actions, credits spent or mobile app actions within 1 day of clicking an ad (by action/conversion time)
@@ -41,32 +45,24 @@ module FbGraph
       :action_values_7d_click_by_convs, #Value returned from actions, credits spent or mobile app actions within 7 days of clicking an ad (by action/conversion time)
       :action_values_7d_view, #Value returned from actions, credits spent or mobile app actions within 7 days of viewing an ad (by impression time)
       :action_values_7d_view_by_convs, #Value returned from actions, credits spent or mobile app actions within 7 days of viewing an ad (by action/conversion time)
-      :adgroup_objective,
-      :age, #The age range of the people you've reached
-      :campaign_group_ui_status,
-      :campaign_group_ui_status_name,
-      :campaign_ui_status,
-      :campaign_ui_status_name,
+      
       :clicks, #Total number of clicks
       :cost_per_action_type, #Cost of each action type
       :cost_per_total_action, #Cost of all actions
       :cost_per_unique_click, #Cost of each unique click
-      :country, #The countries where the people reached are located
       :cpc, #Cost per click
       :cpm, #Cost per impressions
       :cpp, #Cost per 1000 people reached
       :ctr, #Click-through rate
+      
       :frequency, #Average number of times each person saw the ad
-      :gender, #Gender of the people reached
       :impressions, #Total number of times the ad was viewed
       :inline_actions, #Actions taken on an ad, includes title_clicks, like, rsvp_yes, rsvp_maybe, post_like, comment, photo_view, link_click, video_play, question_vote
-      :inline_actions_by_convs,
-      :placement, #Where ad was shown on Facebook, such as on News Feed on a mobile device or on the right-side of Facebook on a desktop computer
       :reach, #Total number of unique people who saw the ad
       :social_clicks, #Number of times the ad was clicked with social information
-      :social_impressions,
       :social_reach, #Number of unique people who saw the ad with social information
       :spend, #Total amount spent on the ad. Note that this does not work with action breakdowns
+      
       :total_actions, #Total number of actions within 1 day of viewing or 28 days after clicking an ad
       :total_actions_1d_click, #Total number of actions within 1 day of clicking an ad (by impression time)
       :total_actions_1d_view, #Total number of actions within 1 day of viewing an ad (by impression time)
@@ -83,9 +79,7 @@ module FbGraph
       :total_unique_actions_7d_click, #Total number of unique actions within 7 days of clicking an ad (by impression time)
       :total_unique_actions_7d_view, #Total number of unique actions within 7 days of viewing an ad (by impression time)
       :total_unique_actions_by_convs, #Total number of unique actions within 1 day of viewing or clicking the ad
-      :total_video_avg_sec_watched_actions_by_convs,
-      :total_video_complete_actions_by_convs,
-      :total_video_sec_watched_actions_by_convs,
+      
       :unique_actions, #Total number of unique actions within 1 day of viewing or 28 days after clicking an ad
       :unique_actions_1d_click, #Number of unique actions within 1 day of clicking an ad (by impression time)
       :unique_actions_1d_click_by_convs, #Number of unique actions within 1 day of clicking an ad (by action/conversion time)
@@ -99,13 +93,39 @@ module FbGraph
       :unique_actions_7d_click_by_convs, #Number of unique actions within 7 days of clicking an ad (by action/conversion time)
       :unique_actions_7d_view, #Number of unique actions within 7 days of viewing an ad (by impression time)
       :unique_actions_7d_view_by_convs, #Number of unique actions within 7 days of viewing an ad (by action/conversion time)
+      
       :unique_clicks, #Number of unique people who have clicked on the ad
       :unique_ctr, #Number of people who clicked on the ad divided by the unique people reached
       :unique_impressions, #Number unique people who saw the ad
+      :unique_social_clicks, #Number of unique people who have clicked on the ad with social context
+      :unique_social_impressions #Number of unique people who have viewed the ad with social context
+    ]
+    
+    # Dimension + Column for Action reporting
+    # Note that the 'spend' field in 'data_columns' does not work with action breakdowns
+    ACTION_COLUMNS = [
+      :action_target_id,
+      :action_target_name,
+      :action_type
+    ]
+    
+    UNDOCUMENTED_DATA_COLUMNS = [
+      :adgroup_objective,
+      :campaign_group_ui_status,
+      :campaign_group_ui_status_name,
+      :campaign_ui_status,
+      :campaign_ui_status_name,
+      :social_impressions,
+      
+      # Inline
+      :inline_actions_by_convs,
       :unique_inline_actions,
       :unique_inline_actions_by_convs,
-      :unique_social_clicks, #Number of unique people who have clicked on the ad with social context
-      :unique_social_impressions, #Number of unique people who have viewed the ad with social context
+      
+      # VIDEO (beta)
+      :total_video_avg_sec_watched_actions_by_convs,
+      :total_video_complete_actions_by_convs,
+      :total_video_sec_watched_actions_by_convs,
       :video_avg_pct_watched_actions,
       :video_avg_pct_watched_actions_1d_click,
       :video_avg_pct_watched_actions_1d_click_by_convs,
@@ -246,15 +266,18 @@ module FbGraph
       :async_percent_completion
     ]
     
+    ALL_COLUMNS = ACTION_COLUMNS + DIMENSION_COLUMNS + DATA_COLUMNS + DATE_COLUMNS + TIME_COLUMNS + ASYNC_STATUS_COLUMNS
+    ALL_DATA_COLUMNS = ACTION_COLUMNS + DIMENSION_COLUMNS + DATA_COLUMNS + ASYNC_STATUS_COLUMNS
+        
     # Accessors
-    attr_accessor(*[DIMENSION_COLUMNS + DATA_COLUMNS + DATE_COLUMNS + TIME_COLUMNS + ASYNC_STATUS_COLUMNS].flatten)
+    attr_accessor *ALL_COLUMNS
       
     # Clean up and assign values
     # identifier will be returned from Facebook if async
     def initialize(identifier, attributes = {})
       super
 
-      (DIMENSION_COLUMNS + DATA_COLUMNS + ASYNC_STATUS_COLUMNS).each do |field|
+      ALL_DATA_COLUMNS.each do |field|
         send("#{field}=", attributes[field.to_sym])
       end
       
