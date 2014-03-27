@@ -7,7 +7,7 @@ module FbGraph
     def initialize(identifier, attributes = {})
       super
 
-      %w(name valid).each do |field|
+      %w(name valid audience_size).each do |field|
         self.send("#{field}=", attributes[field.to_sym])
       end
     end
