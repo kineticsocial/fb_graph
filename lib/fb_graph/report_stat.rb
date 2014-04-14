@@ -60,6 +60,7 @@ module FbGraph
       :inline_actions, #Actions taken on an ad, includes title_clicks, like, rsvp_yes, rsvp_maybe, post_like, comment, photo_view, link_click, video_play, question_vote
       :reach, #Total number of unique people who saw the ad
       :social_clicks, #Number of times the ad was clicked with social information
+      :social_impressions, # Not documened but we want it
       :social_reach, #Number of unique people who saw the ad with social information
       :spend, #Total amount spent on the ad. Note that this does not work with action breakdowns
       
@@ -115,8 +116,7 @@ module FbGraph
       :campaign_group_ui_status_name,
       :campaign_ui_status,
       :campaign_ui_status_name,
-      :social_impressions,
-      
+            
       # Inline
       :inline_actions_by_convs,
       :unique_inline_actions,
