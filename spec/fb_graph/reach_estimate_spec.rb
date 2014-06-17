@@ -14,8 +14,7 @@ describe FbGraph::ReachEstimate, '.new' do
           :cpm_median => 11,
           :cpm_max => 14
         }
-      ],
-      :imp_estimates => []
+      ]
     }
   }
 
