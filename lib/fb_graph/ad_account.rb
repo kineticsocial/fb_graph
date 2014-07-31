@@ -16,6 +16,7 @@ module FbGraph
     include Connections::OffsitePixels
     include Connections::CustomAudiences
     include Connections::PartnerCategories
+    include Connections::UserPermissions
 
     ATTRS = [
       :account_id,

@@ -26,6 +26,7 @@ module FbGraph
     include Connections::Videos
     include Connections::Offers
     include Connections::Streams
+    include Connections::UserPermissions
     extend Searchable
 
     @@attributes = {

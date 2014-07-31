@@ -1,6 +1,8 @@
 module FbGraph
   class BusinessManager < Node
     include Connections::AdAccounts
+    include Connections::Pages
+    include Connections::UserPermissions
 
     ATTRS = [
       :id,
