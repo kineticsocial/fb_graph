@@ -9,10 +9,6 @@ module FbGraph
           )
         end
       end
-
-      def pages!(options = {})
-        page = post options.merge(:connection => :pages)
-      end
     end
   end
 end
