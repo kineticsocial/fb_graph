@@ -98,28 +98,7 @@ module FbGraph
       :unique_ctr, #Number of people who clicked on the ad divided by the unique people reached
       :unique_impressions, #Number unique people who saw the ad
       :unique_social_clicks, #Number of unique people who have clicked on the ad with social context
-      :unique_social_impressions #Number of unique people who have viewed the ad with social context
-    ]
-    
-    # Dimension + Column for Action reporting
-    # Note that the 'spend' field in 'data_columns' does not work with action breakdowns
-    ACTION_COLUMNS = [
-      :action_target_id,
-      :action_target_name,
-      :action_type
-    ]
-    
-    UNDOCUMENTED_DATA_COLUMNS = [
-      :adgroup_objective,
-      :campaign_group_ui_status,
-      :campaign_group_ui_status_name,
-      :campaign_ui_status,
-      :campaign_ui_status_name,
-            
-      # Inline
-      :inline_actions_by_convs,
-      :unique_inline_actions,
-      :unique_inline_actions_by_convs,
+      :unique_social_impressions, #Number of unique people who have viewed the ad with social context
       
       # VIDEO (beta)
       :video_sec_watched_actions_1d_click,
@@ -234,6 +213,27 @@ module FbGraph
       :video_p95_watched_actions_7d_view_by_convs,
       :video_p95_watched_actions_28d_view_by_convs,
       :video_p95_watched_actions_total_by_convs
+    ]
+    
+    # Dimension + Column for Action reporting
+    # Note that the 'spend' field in 'data_columns' does not work with action breakdowns
+    ACTION_COLUMNS = [
+      :action_target_id,
+      :action_target_name,
+      :action_type
+    ]
+    
+    UNDOCUMENTED_DATA_COLUMNS = [
+      :adgroup_objective,
+      :campaign_group_ui_status,
+      :campaign_group_ui_status_name,
+      :campaign_ui_status,
+      :campaign_ui_status_name,
+            
+      # Inline
+      :inline_actions_by_convs,
+      :unique_inline_actions,
+      :unique_inline_actions_by_convs
     ]
     
     DATE_COLUMNS = [
