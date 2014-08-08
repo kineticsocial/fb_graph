@@ -98,8 +98,10 @@ module FbGraph
       :unique_ctr, #Number of people who clicked on the ad divided by the unique people reached
       :unique_impressions, #Number unique people who saw the ad
       :unique_social_clicks, #Number of unique people who have clicked on the ad with social context
-      :unique_social_impressions, #Number of unique people who have viewed the ad with social context
-      
+      :unique_social_impressions #Number of unique people who have viewed the ad with social context
+    ]
+    
+    DATA_COLUMNS_VIDEO = [
       # VIDEO (beta)
       :video_sec_watched_actions_1d_click,
       :video_sec_watched_actions_7d_click,
