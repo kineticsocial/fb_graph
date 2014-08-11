@@ -258,6 +258,7 @@ module FbGraph
         
     # Accessors
     attr_accessor *ALL_COLUMNS
+    attr_accessor *DATA_BREAKDOWN_COLUMNS
       
     # Clean up and assign values
     # identifier will be returned from Facebook if async
