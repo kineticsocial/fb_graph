@@ -269,6 +269,10 @@ module FbGraph
         send("#{field}=", attributes[field.to_sym])
       end
       
+      DATA_BREAKDOWN_COLUMNS.each do |field|
+        send("#{field}=", attributes[field.to_sym])
+      end
+      
       TIME_COLUMNS.each do |field|
         if val = attributes[field.to_sym]
           #Handles integer timestamps and ISO8601 strings
