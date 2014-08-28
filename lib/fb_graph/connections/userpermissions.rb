@@ -2,7 +2,7 @@ module FbGraph
   module Connections
     module UserPermissions
       def userpermissions(options = {})
-        self.connection(:userpermissions, options).first
+        self.connection(:userpermissions, options)
       end
 
       def userpermissions!(options = {})
