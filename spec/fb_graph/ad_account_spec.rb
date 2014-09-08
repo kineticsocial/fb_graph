@@ -21,7 +21,7 @@ describe FbGraph::AdAccount, '.new' do
       :business_state => "Alabama",
       :business_zip => "33333",
       :business_country_code => "US",
-      :vat_status => 1,
+      :tax_id_status => 1,
       :agency_client_declaration => {
         "agency_representing_client"=>1,
         "client_based_in_france"=>0,
@@ -58,7 +58,7 @@ describe FbGraph::AdAccount, '.new' do
     ad_account.business_state.should == "Alabama"
     ad_account.business_zip.should == "33333"
     ad_account.business_country_code.should == "US"
-    ad_account.vat_status.should == 1
+    ad_account.tax_id_status.should == 1
     ad_account.agency_client_declaration.should == {
         "agency_representing_client"=>1,
         "client_based_in_france"=>0,
@@ -102,7 +102,7 @@ describe FbGraph::AdAccount, '.fetch' do
       ad_account.business_state.should == "Alabama"
       ad_account.business_zip.should == "33333"
       ad_account.business_country_code.should == "US"
-      ad_account.vat_status.should == 1
+      ad_account.tax_id_status.should == 1
       ad_account.agency_client_declaration.should == {
         "agency_representing_client"=>1,
         "client_based_in_france"=>0,

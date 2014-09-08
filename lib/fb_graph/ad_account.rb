@@ -37,7 +37,7 @@ module FbGraph
       :business_state,
       :business_zip,
       :business_country_code,
-      :vat_status,
+      :tax_id_status,
       :agency_client_declaration,
       :spend_cap,
       :amount_spent,
