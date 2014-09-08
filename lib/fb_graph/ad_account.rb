@@ -41,7 +41,8 @@ module FbGraph
       :agency_client_declaration,
       :spend_cap,
       :amount_spent,
-      :balance
+      :balance,
+      :created_time
     ]
 
     attr_accessor *ATTRS
@@ -54,7 +55,7 @@ module FbGraph
       end
 
       if attributes[:users]
-        self.users = attributes[:users].collect { |u| FbGraph::AdUser.new(u["uid"], u) }
+        self.users = attributes[:users].collect { |u| FbGraph::AdUser.new(u["id"], u) }
       end
     end
   end
