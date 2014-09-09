@@ -5,13 +5,12 @@ module FbGraph
       :approximate_count,
       :name,
       :origin_audience_id,
-      :parent_audience_id,
-      :parent_category,
-      :status,
+      :data_source,
+      :delivery_status,
+      :operation_status,
+      :permission_for_actions,
       :subtype,
       :subtype_name,
-      :type,
-      :type_name,
       :time_updated
     ]
 
