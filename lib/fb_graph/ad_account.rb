@@ -54,8 +54,8 @@ module FbGraph
         send("#{field}=", attributes[field.to_sym])
       end
 
-      if attributes[:users]
-        self.users = attributes[:users].collect { |u| FbGraph::AdUser.new(u["id"], u) }
+      if attributes[:users] && attributes[:users][:data]
+        self.users = attributes[:users][:data].collect { |u| FbGraph::AdUser.new(u["id"], u) }
       end
     end
   end
