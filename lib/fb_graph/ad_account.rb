@@ -54,8 +54,13 @@ module FbGraph
         send("#{field}=", attributes[field.to_sym])
       end
 
-      if attributes[:users] && attributes[:users][:data]
-        self.users = attributes[:users][:data].collect { |u| FbGraph::AdUser.new(u["id"], u) }
+      users_attributes = attributes[:users]
+      if users_attributes
+        if users_attributes.kind_of?(Hash) && users_attributes[:data]
+          self.users = users_attributes[:data].collect { |u| FbGraph::AdUser.new(u["id"], u) }
+        elsif users_attributes.kind_of?(Array)
+          self.users = users_attributes.collect { |u| FbGraph::AdUser.new(u["id"], u) }
+        end
       end
     end
   end
