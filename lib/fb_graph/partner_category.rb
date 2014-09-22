@@ -8,6 +8,7 @@ module FbGraph
       :parent_category,
       :approximate_count,
       :status,
+      :targeting_type,
     ]
 
     attr_accessor *ATTRS
