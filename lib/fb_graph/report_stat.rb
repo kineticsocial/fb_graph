@@ -13,10 +13,12 @@ module FbGraph
     
     DATA_BREAKDOWN_COLUMNS = [
       # Demographic
-      :age, #The age range of the people you've reached
-      :country, #The countries where the people reached are located
-      :gender, #Gender of the people reached
-      :placement, #Where ad was shown on Facebook, such as on News Feed on a mobile device or on the right-side of Facebook on a desktop computer      
+      :age, # The age range of the people you've reached
+      :country, #T he countries where the people reached are located
+      :gender, # Gender of the people reached
+      :placement, # Where ad was shown on Facebook, such as on News Feed on a mobile device or on the right-side of Facebook on a desktop computer
+      :action_device, # The device type on which off-Facebook actions were taken
+      :impression_device # NOT a real breakdown column, but acts as one with placement
     ]
     
     DATA_ACTION_COLUMNS = [
