@@ -40,7 +40,9 @@ module FbGraph
       # Generate Call
       post_params = {
         :batch => update_params.collect do |k, v|
-          { :method => "POST", :relative_url => k.to_s, :body => CGI.unescape(v.merge(:redownload => 1, :include_headers => include_headers).to_query)}
+          body_hash = v.merge(:redownload => 1)
+          body_hash.merge!(:include_headers => include_headers) if !include_headers
+          { :method => "POST", :relative_url => k.to_s, :body => CGI.unescape(body_hash.to_query)}
         end
       }
       
