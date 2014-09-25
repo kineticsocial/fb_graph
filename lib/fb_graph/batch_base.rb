@@ -1,7 +1,7 @@
 module FbGraph
   class BatchBase < Node
     # Accessors
-    attr_accessor :retries, :skip_missing_id_check, :timeout, :fields
+    attr_accessor :retries, :skip_missing_id_check, :timeout, :fields, :include_headers
 
     DEFAULT_TIMEOUT = 240
     RETRY_COUNT = 2
@@ -11,6 +11,7 @@ module FbGraph
       self.access_token = access_token
       self.retries = 0
       self.skip_missing_id_check = options[:skip_missing_id_check] || false
+      self.include_headers = options[:include_headers].nil? ? true : options[:include_headers]
       self.fields = options[:fields] || nil
       self.timeout = options[:timeout] || DEFAULT_TIMEOUT
     end

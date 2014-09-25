@@ -22,6 +22,7 @@ module FbGraph
       params = {:batch => facebook_ids.collect{|id| 
         url = id.to_s
         url += "?fields=#{fields.join(",")}" if fields.present?
+        url += "&include_headers=#{include_headers}"
         {:relative_url => url}}
       }
       
