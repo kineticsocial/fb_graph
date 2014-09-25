@@ -1,13 +1,14 @@
 module FbGraph
   # Batch Update
   class BatchUpdate < BatchBase
-    attr_accessor :success_objects, :error_objects
+    attr_accessor :success_objects, :error_objects, :columns
     
     # Initialize object and run request
     def initialize(access_token, objects, options = {})
       super(access_token, options)
       self.success_objects = []
       self.error_objects = []
+      self.columns = options[:columns]
       
       timeout_and_retry { update(objects) } 
     end
@@ -19,15 +20,19 @@ module FbGraph
       
       # Keep track of key/values we want to send to facebook
       update_params = objects.inject({}) do |p, o|
-        # Get the list of updatable columns, the object MUST respond to facebook_actions_allowable_columns
-        body_hash = o.facebook_actions_allowable_columns.inject({}) {|h, k| h[k.to_s.sub(/^api_/,"").to_sym] = o.send(k); h}
-        
-        # Translate the columns, if the object responds to facebook_actions_translated_columns
-        o.facebook_actions_translated_columns.each {|k, v| body_hash[k.to_sym] = v if body_hash.include?(k.to_sym)} if o.respond_to?(:facebook_actions_translated_columns)
-        
-        # Remove any columns whos values are nil, we do not want to pass these to Facebook
-        body_hash.delete_if{|k, v| v.nil?}
-        
+        body_hash = {}
+        if columns
+          body_hash = columns
+        else
+          # Get the list of updatable columns, the object MUST respond to facebook_actions_allowable_columns
+          o.facebook_actions_allowable_columns.each {|c| body_hash[c.to_s.sub(/^api_/,"").to_sym] = o.send(c)}
+          
+          # Translate the columns, if the object responds to facebook_actions_translated_columns
+          o.facebook_actions_translated_columns.each {|k, v| body_hash[k.to_sym] = v if body_hash.include?(k.to_sym)} if o.respond_to?(:facebook_actions_translated_columns)
+          
+          # Remove any columns whos values are nil, we do not want to pass these to Facebook
+          body_hash.delete_if{|k, v| v.nil?}
+        end
         p[o.facebook_key] = body_hash
         p
       end
@@ -35,7 +40,7 @@ module FbGraph
       # Generate Call
       post_params = {
         :batch => update_params.collect do |k, v|
-          { :method => "POST", :relative_url => k.to_s, :body => CGI.unescape(v.merge(:redownload => 1).to_query)}
+          { :method => "POST", :relative_url => k.to_s, :body => CGI.unescape(v.merge(:redownload => 1, :include_headers => include_headers).to_query)}
         end
       }
       
@@ -91,12 +96,16 @@ module FbGraph
       # This will ensure that they are indeed invalid
       # And that we append the appropriate error message(s)
       tmp_error_objects.each do |o|
-        begin
-          o.save_to_facebook(:send_all_attributes => true) unless o.deleted?
-          o.valid? # Remove any error messages
-          success_objects << o 
-        rescue ActiveRecord::RecordInvalid => e
+        if o.deleted?
           error_objects << o
+        else
+          begin
+            o.save_to_facebook(:send_all_attributes => true)
+            o.valid? # Remove any error messages
+            success_objects << o 
+          rescue ActiveRecord::RecordInvalid => e
+            error_objects << o
+          end
         end
       end
     end  
