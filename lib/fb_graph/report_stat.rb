@@ -17,7 +17,6 @@ module FbGraph
       :country, #T he countries where the people reached are located
       :gender, # Gender of the people reached
       :placement, # Where ad was shown on Facebook, such as on News Feed on a mobile device or on the right-side of Facebook on a desktop computer
-      :action_device, # The device type on which off-Facebook actions were taken
       :impression_device # NOT a real breakdown column, but acts as one with placement
     ]
     
@@ -224,7 +223,8 @@ module FbGraph
     ACTION_COLUMNS = [
       :action_target_id,
       :action_target_name,
-      :action_type
+      :action_type,
+      :action_device # The device type on which off-Facebook actions were taken
     ]
     
     UNDOCUMENTED_DATA_COLUMNS = [
