@@ -77,7 +77,6 @@ module FbGraph
       :video_avg_sec_watched_actions_1d_view_by_convs,
       :video_avg_sec_watched_actions_7d_view_by_convs,
       :video_avg_sec_watched_actions_28d_view_by_convs,
-      :total_video_avg_sec_watched_actions_by_convs,
       :video_avg_pct_watched_actions_1d_click,
       :video_avg_pct_watched_actions_7d_click,
       :video_avg_pct_watched_actions_28d_click,
@@ -185,6 +184,7 @@ module FbGraph
       :unique_impressions, #Number unique people who saw the ad
       :unique_social_clicks, #Number of unique people who have clicked on the ad with social context
       :unique_social_impressions, #Number of unique people who have viewed the ad with social context
+      :total_video_avg_sec_watched_actions_by_convs
     ]
 
     # Dimension + Column for Action reporting
