@@ -47,7 +47,6 @@ module FbGraph
       :actions_7d_click_by_convs, #Number of actions within 7 days of clicking an ad (by action/conversion time)
       :actions_7d_view, #Actions taken within 7 days of viewing an ad (by impression time)
       :actions_7d_view_by_convs, #Number of actions within 7 days of viewing an ad (by action/conversion time)
-      :inline_actions, #Actions taken on an ad, includes title_clicks, like, rsvp_yes, rsvp_maybe, post_like, comment, photo_view, link_click, video_play, question_vote
       :total_actions_by_convs, #Total number of actions the intiial viewing of or clicking on the ad (by action/conversion time)
       :total_unique_actions_by_convs, #Total number of unique actions within 1 day of viewing or clicking the ad
       :unique_actions, #Total number of unique actions within 1 day of viewing or 28 days after clicking an ad
@@ -232,12 +231,7 @@ module FbGraph
       :campaign_group_ui_status,
       :campaign_group_ui_status_name,
       :campaign_ui_status,
-      :campaign_ui_status_name,
-            
-      # Inline
-      :inline_actions_by_convs,
-      :unique_inline_actions,
-      :unique_inline_actions_by_convs
+      :campaign_ui_status_name
     ]
     
     DATE_COLUMNS = [
