@@ -6,7 +6,7 @@ module FbGraph
     include Connections::Likes::Likable
     extend Searchable
 
-    attr_accessor :from, :to, :with_tags, :message, :message_tags, :picture, :link, :name, :caption, :description, :source, :properties, :icon, :actions, :privacy, :type, :graph_object_id, :application, :targeting, :created_time, :updated_time, :story, :story_tags, :place
+    attr_accessor :from, :to, :with_tags, :message, :message_tags, :picture, :child_attachments, :link, :name, :caption, :description, :source, :properties, :icon, :actions, :privacy, :type, :graph_object_id, :application, :targeting, :created_time, :updated_time, :story, :story_tags, :place
 
     def initialize(identifier, attributes = {})
       super
@@ -49,6 +49,7 @@ module FbGraph
         end
       end
       @picture     = attributes[:picture]
+      @child_attachments = attributes[:child_attachments]
       @link        = attributes[:link]
       @name        = attributes[:name]
       @caption     = attributes[:caption]
