@@ -154,6 +154,7 @@ require 'fb_graph/snippet'
 require 'fb_graph/custom_audience'
 require 'fb_graph/partner_category'
 require 'fb_graph/review'
+require  'fb_graph/reach_frequency_prediction'
 
 # Load after FbGraph::User
 require 'fb_graph/ad_user'
