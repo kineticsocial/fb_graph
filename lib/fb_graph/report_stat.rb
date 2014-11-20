@@ -21,6 +21,8 @@ module FbGraph
     ]
 
     DATA_ACTION_COLUMNS = [
+      :date_start, # Report Stat Date
+      :date_stop, # Report End Date
       :action_values, #Value of actions, credits spent or mobile app actions taken on an ad
       :action_values_1d_click, #Value returned from actions, credits spent or mobile app actions within 1 day of clicking an ad (by impression time)
       :action_values_1d_click_by_convs, #Value returned from actions, credits spent or mobile app actions within 1 day of clicking an ad (by action/conversion time)
