@@ -1,5 +1,5 @@
 module FbGraph
-  class ReachFrequencyPrediction < Node
+  class AdReachFrequency < Node
     ATTRS = [
       # attributes particular to prediction creation only
       :budget,
