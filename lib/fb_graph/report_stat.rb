@@ -147,7 +147,21 @@ module FbGraph
       :video_p95_watched_actions_1d_view_by_convs,
       :video_p95_watched_actions_7d_view_by_convs,
       :video_p95_watched_actions_28d_view_by_convs,
-      :video_p95_watched_actions_total_by_convs
+      :video_p95_watched_actions_total_by_convs,
+      :video_p100_watched_actions_1d_click,
+      :video_p100_watched_actions_7d_click,
+      :video_p100_watched_actions_28d_click,
+      :video_p100_watched_actions_1d_view,
+      :video_p100_watched_actions_7d_view,
+      :video_p100_watched_actions_28d_view,
+      :video_p100_watched_actions,
+      :video_p100_watched_actions_1d_click_by_convs,
+      :video_p100_watched_actions_7d_click_by_convs,
+      :video_p100_watched_actions_28d_click_by_convs,
+      :video_p100_watched_actions_1d_view_by_convs,
+      :video_p100_watched_actions_7d_view_by_convs,
+      :video_p100_watched_actions_28d_view_by_convs,
+      :video_p100_watched_actions_total_by_convs
     ]
 
     DATA_COLUMNS = [
