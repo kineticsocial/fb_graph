@@ -6,7 +6,7 @@ module FbGraph
     include Connections::Likes::Likable
     extend Searchable
 
-    attr_accessor :from, :to, :with_tags, :message, :message_tags, :picture, :child_attachments, :link, :name, :caption, :description, :source, :properties, :icon, :actions, :privacy, :type, :graph_object_id, :application, :targeting, :created_time, :updated_time, :story, :story_tags, :place
+    attr_accessor :from, :to, :with_tags, :message, :message_tags, :picture, :child_attachments, :link, :name, :caption, :description, :source, :properties, :icon, :actions, :privacy, :type, :graph_object_id, :application, :targeting, :created_time, :updated_time, :story, :story_tags, :place, :is_app_share, :allowed_advertising_objectives
 
     def initialize(identifier, attributes = {})
       super
@@ -110,6 +110,13 @@ module FbGraph
           Place.new(place)
         when Hash
           Place.new(place[:id], place)
+        end
+      end
+      @is_app_share = attributes[:is_app_share]
+      @allowed_advertising_objectives = []
+      if attributes[:allowed_advertising_objectives]
+        attributes[:allowed_advertising_objectives].each do |objective|
+          @allowed_advertising_objectives << objective
         end
       end
 
