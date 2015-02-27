@@ -10,7 +10,8 @@ module FbGraph
 
       def ad_reach_frequency!(options = {})
         reach_frequency_prediction = post options.merge(connection: :reachfrequencypredictions)
-        AdReachFrequency.new(reach_frequency_prediction.identifier, {access_token: options[:access_token] || self.access_token})
+        rf_identifier = reach_frequency_prediction['id'] rescue reach_frequency_prediction.identifier
+        AdReachFrequency.new(rf_identifier, {access_token: options[:access_token] || self.access_token})
       end
     end
   end
