@@ -6,7 +6,7 @@ module FbGraph
     include Connections::Likes::Likable
     extend Searchable
 
-    attr_accessor :from, :to, :with_tags, :message, :message_tags, :picture, :child_attachments, :link, :name, :caption, :description, :source, :properties, :icon, :actions, :privacy, :type, :graph_object_id, :application, :targeting, :created_time, :updated_time, :story, :story_tags, :place, :is_app_share, :allowed_advertising_objectives
+    attr_accessor :from, :to, :with_tags, :message, :message_tags, :picture, :child_attachments, :link, :name, :caption, :description, :source, :properties, :icon, :actions, :privacy, :type, :graph_object_id, :application, :targeting, :created_time, :updated_time, :story, :story_tags, :place, :is_app_share, :allowed_advertising_objectives, :attachments, :comments, :shares, :is_published, :scheduled_publish_time, :feed_targeting
 
     def initialize(identifier, attributes = {})
       super
@@ -119,6 +119,12 @@ module FbGraph
           @allowed_advertising_objectives << objective
         end
       end
+      @attachments = attributes[:attachments]
+      @comments    = attributes[:comments]
+      @shares      = attributes[:shares]
+      @is_publsihed = attributes[:is_published]
+      @scheduled_publish_time = attributes[:scheduled_publish_time]
+      @feed_targeting = attributes[:feed_targeting]
 
       # cached connection
       cache_collections attributes, :comments, :likes

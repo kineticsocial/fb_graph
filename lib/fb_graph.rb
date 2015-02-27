@@ -42,6 +42,11 @@ module FbGraph
   end
   self.debugging = false
 
+  def self.set_api_version(version)
+    self.send(:remove_const, 'ROOT_URL')  if self.const_defined?('ROOT_URL')
+    self.const_set('ROOT_URL', "https://graph.facebook.com/#{version}")
+  end
+
   def self.http_client
     _http_client_ = HTTPClient.new(
       :agent_name => "FbGraph (#{VERSION})"
