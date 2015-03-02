@@ -1,13 +1,13 @@
 module FbGraph
   class Exception < StandardError
-    attr_accessor :status, :type, :error_code, :error_subcode, :access_token
+    attr_accessor :status, :type, :error_code, :error_subcode, :access_token, :is_transient, :error_user_title, :error_user_msg
     alias_method :code, :status
 
     class << self
       def handle_structured_response(status, details, headers)
         if (error = details[:error])
           klass = klass_for_header(headers, error) || klass_for_structured_body(error)
-          message = [error[:type], error[:message]].join(' :: ')
+          message = [error[:type], error[:message], error[:error_user_msg]].join(' :: ')
           if klass
             raise klass.new(message, details)
           else
