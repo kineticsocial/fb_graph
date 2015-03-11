@@ -14,7 +14,7 @@ module FbGraph
       def report_stat!(options = {})
         options.merge!(:async => true)
         report_stat = self.post options.merge(:connection => :reportstats)
-        ReportStat.new report_stat.identifier, {:access_token => options[:access_token] || self.access_token}
+        ReportStat.new report_stat.id, {:access_token => options[:access_token] || self.access_token}
       end
     end
   end
