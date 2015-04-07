@@ -47,13 +47,19 @@ module FbGraph
 
     def get(params = {})
       handle_response do
-        http_client.get build_endpoint(params), build_params(params)
+        _http_client_ = http_client
+        response = _http_client_.get build_endpoint(params), build_params(params)
+        _http_client_.reset_all
+        response
       end
     end
 
     def post(params = {})
       handle_response do
-        http_client.post build_endpoint(params), build_params(params)
+        _http_client_ = http_client
+        response = _http_client_.post build_endpoint(params), build_params(params)
+        _http_client_.reset_all
+        response
       end
     end
 
@@ -61,7 +67,10 @@ module FbGraph
       _endpoint_, _params_ = build_endpoint(params), build_params(params)
       _endpoint_ = [_endpoint_, _params_.try(:to_query)].compact.join('?')
       handle_response do
-        http_client.delete _endpoint_
+        _http_client_ = http_client
+        response = _http_client_.delete _endpoint_
+        _http_client_.reset_all
+        response
       end
     end
 
