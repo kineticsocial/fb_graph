@@ -62,8 +62,9 @@ module FbGraph
       :unique_actions_7d_click_by_convs, #Number of unique actions within 7 days of clicking an ad (by action/conversion time)
       :unique_actions_7d_view, #Number of unique actions within 7 days of viewing an ad (by impression time)
       :unique_actions_7d_view_by_convs, #Number of unique actions within 7 days of viewing an ad (by action/conversion time)
-
-      # VIDEO
+    ]
+    
+    VIDEO_ACTION_COLUMNS = [
       :video_avg_sec_watched_actions_1d_click,
       :video_avg_sec_watched_actions_7d_click,
       :video_avg_sec_watched_actions_28d_click,
@@ -233,8 +234,8 @@ module FbGraph
       :async_percent_completion
     ]
 
-    ALL_COLUMNS = ACTION_COLUMNS + DIMENSION_COLUMNS + DATA_COLUMNS + DATE_COLUMNS + TIME_COLUMNS + ASYNC_STATUS_COLUMNS + DATA_ACTION_COLUMNS
-    ALL_DATA_COLUMNS = ACTION_COLUMNS + DIMENSION_COLUMNS + DATA_COLUMNS + ASYNC_STATUS_COLUMNS + DATA_ACTION_COLUMNS
+    ALL_COLUMNS = ACTION_COLUMNS + DIMENSION_COLUMNS + DATA_COLUMNS + DATE_COLUMNS + TIME_COLUMNS + ASYNC_STATUS_COLUMNS + DATA_ACTION_COLUMNS + VIDEO_ACTION_COLUMNS 
+    ALL_DATA_COLUMNS = ACTION_COLUMNS + DIMENSION_COLUMNS + DATA_COLUMNS + ASYNC_STATUS_COLUMNS + DATA_ACTION_COLUMNS + VIDEO_ACTION_COLUMNS
 
     # Accessors
     attr_accessor *ALL_COLUMNS
