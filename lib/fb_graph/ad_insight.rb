@@ -1,5 +1,7 @@
 module FbGraph
   class AdInsight < Node
+    include Connections::AdInsights
+    
     DIMENSION_COLUMNS = [
       :account_id, #The ad account id
       :account_name, #The ad account name
