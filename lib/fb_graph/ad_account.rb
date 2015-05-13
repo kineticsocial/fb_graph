@@ -5,6 +5,7 @@ module FbGraph
     include Connections::AdGroups
     include Connections::AdCampaignStats
     include Connections::AdGroupStats
+    include Connections::AdInsights
     include Connections::ReportStats
     include Connections::BroadTargetingCategories
     include Connections::ReachEstimates

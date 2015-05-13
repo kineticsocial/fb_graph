@@ -1,6 +1,7 @@
 module FbGraph
   class AdCampaignGroup < Node
     include Connections::AdCampaigns
+    include Connections::AdInsights
     
     attr_accessor :account_id, :name, :objective, :campaign_group_status, :is_completed
     

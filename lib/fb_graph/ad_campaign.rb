@@ -1,6 +1,7 @@
 module FbGraph
   class AdCampaign < Node
     include Connections::AdGroups
+    include Connections::AdInsights
 
     attr_accessor :account_id, :campaign_group_id, :name, :start_time, :end_time, :updated_time, :daily_budget, :daily_imps, :campaign_status, :lifetime_budget, :lifetime_imps
 
