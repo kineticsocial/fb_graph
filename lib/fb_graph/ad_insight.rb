@@ -23,185 +23,62 @@ module FbGraph
     ]
 
     DATA_ACTION_COLUMNS = [
-      :action_values, #Value of actions, credits spent or mobile app actions taken on an ad
-      :action_values_1d_click, #Value returned from actions, credits spent or mobile app actions within 1 day of clicking an ad (by impression time)
-      :action_values_1d_click_by_convs, #Value returned from actions, credits spent or mobile app actions within 1 day of clicking an ad (by action/conversion time)
-      :action_values_1d_view, #Value returned from actions, credits spent or mobile app actions within 1 day of viewing an ad (by impression time)
-      :action_values_1d_view_by_convs, #Value returned from actions, credits spent or mobile app actions within 1 day of viewing an ad (by action/conversion time)
-      :action_values_28d_click, #Value returned from actions, credits spent or mobile app actions within 28 day of clicking an ad (by impression time)
-      :action_values_28d_click_by_convs, #Value returned from actions, credits spent or mobile app actions within 28 days of clicking an ad (by action/conversion time)
-      :action_values_28d_view, #Value returned from actions, credits spent or mobile app actions within 28 days of viewing an ad (by impression time)
-      :action_values_28d_view_by_convs, #Value returned from actions, credits spent or mobile app actions within 28 days of viewing an ad (by action/conversion time)
-      :action_values_7d_click, #Value returned from actions, credits spent or mobile app actions within 7 day of clicking an ad (by impression time)
-      :action_values_7d_click_by_convs, #Value returned from actions, credits spent or mobile app actions within 7 days of clicking an ad (by action/conversion time)
-      :action_values_7d_view, #Value returned from actions, credits spent or mobile app actions within 7 days of viewing an ad (by impression time)
-      :action_values_7d_view_by_convs, #Value returned from actions, credits spent or mobile app actions within 7 days of viewing an ad (by action/conversion time)
-      :actions, #Actions taken within 1 day of viewing or 28 days after clicking an ad
-      :actions_1d_click, #Actions taken within 1 day of clicking an ad (by impression time)
-      :actions_1d_click_by_convs, #Number of actions within 1 day of clicking an ad (by action/conversion time)
-      :actions_1d_view, #Actions taken within 1 day of viewing an ad (by impression time)
-      :actions_1d_view_by_convs, #Number of actions within 1 day of viewing an ad (by action/conversion time)
-      :actions_28d_click, #Actions taken within 28 days of clicking an ad (by impression time)
-      :actions_28d_click_by_convs, #Number of actions within 28 days of clicking an ad (by action/conversion time)
-      :actions_28d_view, #Actions taken within 28 days of viewing an ad (by impression time)
-      :actions_28d_view_by_convs, #Number of actions within 28 days of viewing an ad (by action/conversion time)
-      :actions_7d_click, #Actions taken within 7 days of clicking an ad (by impression time)
-      :actions_7d_click_by_convs, #Number of actions within 7 days of clicking an ad (by action/conversion time)
-      :actions_7d_view, #Actions taken within 7 days of viewing an ad (by impression time)
-      :actions_7d_view_by_convs, #Number of actions within 7 days of viewing an ad (by action/conversion time)
-      :total_actions_by_convs, #Total number of actions the intiial viewing of or clicking on the ad (by action/conversion time)
-      :total_unique_actions_by_convs, #Total number of unique actions within 1 day of viewing or clicking the ad
-      :unique_actions, #Total number of unique actions within 1 day of viewing or 28 days after clicking an ad
-      :unique_actions_1d_click, #Number of unique actions within 1 day of clicking an ad (by impression time)
-      :unique_actions_1d_click_by_convs, #Number of unique actions within 1 day of clicking an ad (by action/conversion time)
-      :unique_actions_1d_view, #Number of unique actions within 1 day of viewing an ad (by impression time)
-      :unique_actions_1d_view_by_convs, #Number of unique actions within 1 day of viewing an ad (by action/conversion time)
-      :unique_actions_28d_click, #Number of unique actions within 28 days of clicking an ad (by impression time)
-      :unique_actions_28d_click_by_convs, #Number of unique actions within 28 days of clicking an ad (by action/conversion time)
-      :unique_actions_28d_view, #Number of unique actions within 28 days of viewing an ad (by impression time)
-      :unique_actions_28d_view_by_convs, #Number of unique actions within 28 days of viewing an ad (by action/conversion time)
-      :unique_actions_7d_click, #Number of unique actions within 7 days of clicking an ad (by impression time)
-      :unique_actions_7d_click_by_convs, #Number of unique actions within 7 days of clicking an ad (by action/conversion time)
-      :unique_actions_7d_view, #Number of unique actions within 7 days of viewing an ad (by impression time)
-      :unique_actions_7d_view_by_convs, #Number of unique actions within 7 days of viewing an ad (by action/conversion time)
+      :action_values, 
+      :actions, 
+      :actions_per_impression,
+      :unique_actions
     ]
     
     VIDEO_ACTION_COLUMNS = [
-      :video_avg_sec_watched_actions_1d_click,
-      :video_avg_sec_watched_actions_7d_click,
-      :video_avg_sec_watched_actions_28d_click,
-      :video_avg_sec_watched_actions_1d_view,
-      :video_avg_sec_watched_actions_7d_view,
-      :video_avg_sec_watched_actions_28d_view,
-      :video_avg_sec_watched_actions,
-      :video_avg_sec_watched_actions_1d_click_by_convs,
-      :video_avg_sec_watched_actions_7d_click_by_convs,
-      :video_avg_sec_watched_actions_28d_click_by_convs,
-      :video_avg_sec_watched_actions_1d_view_by_convs,
-      :video_avg_sec_watched_actions_7d_view_by_convs,
-      :video_avg_sec_watched_actions_28d_view_by_convs,
-      :total_video_avg_sec_watched_actions_by_convs,
-      :video_avg_pct_watched_actions_1d_click,
-      :video_avg_pct_watched_actions_7d_click,
-      :video_avg_pct_watched_actions_28d_click,
-      :video_avg_pct_watched_actions_1d_view,
-      :video_avg_pct_watched_actions_7d_view,
-      :video_avg_pct_watched_actions_28d_view,
-      :video_avg_pct_watched_actions,
-      :video_avg_pct_watched_actions_1d_click_by_convs,
-      :video_avg_pct_watched_actions_7d_click_by_convs,
-      :video_avg_pct_watched_actions_28d_click_by_convs,
-      :video_avg_pct_watched_actions_1d_view_by_convs,
-      :video_avg_pct_watched_actions_7d_view_by_convs,
-      :video_avg_pct_watched_actions_28d_view_by_convs,
-      :video_avg_pct_watched_actions_total_by_convs,
-      :video_p25_watched_actions_1d_click,
-      :video_p25_watched_actions_7d_click,
-      :video_p25_watched_actions_28d_click,
-      :video_p25_watched_actions_1d_view,
-      :video_p25_watched_actions_7d_view,
-      :video_p25_watched_actions_28d_view,
-      :video_p25_watched_actions,
-      :video_p25_watched_actions_1d_click_by_convs,
-      :video_p25_watched_actions_7d_click_by_convs,
-      :video_p25_watched_actions_28d_click_by_convs,
-      :video_p25_watched_actions_1d_view_by_convs,
-      :video_p25_watched_actions_7d_view_by_convs,
-      :video_p25_watched_actions_28d_view_by_convs,
-      :video_p25_watched_actions_total_by_convs,
-      :video_p50_watched_actions_1d_click,
-      :video_p50_watched_actions_7d_click,
-      :video_p50_watched_actions_28d_click,
-      :video_p50_watched_actions_1d_view,
-      :video_p50_watched_actions_7d_view,
-      :video_p50_watched_actions_28d_view,
-      :video_p50_watched_actions,
-      :video_p50_watched_actions_1d_click_by_convs,
-      :video_p50_watched_actions_7d_click_by_convs,
-      :video_p50_watched_actions_28d_click_by_convs,
-      :video_p50_watched_actions_1d_view_by_convs,
-      :video_p50_watched_actions_7d_view_by_convs,
-      :video_p50_watched_actions_28d_view_by_convs,
-      :video_p50_watched_actions_total_by_convs,
-      :video_p75_watched_actions_1d_click,
-      :video_p75_watched_actions_7d_click,
-      :video_p75_watched_actions_28d_click,
-      :video_p75_watched_actions_1d_view,
-      :video_p75_watched_actions_7d_view,
-      :video_p75_watched_actions_28d_view,
-      :video_p75_watched_actions,
-      :video_p75_watched_actions_1d_click_by_convs,
-      :video_p75_watched_actions_7d_click_by_convs,
-      :video_p75_watched_actions_28d_click_by_convs,
-      :video_p75_watched_actions_1d_view_by_convs,
-      :video_p75_watched_actions_7d_view_by_convs,
-      :video_p75_watched_actions_28d_view_by_convs,
-      :video_p75_watched_actions_total_by_convs,
-      :video_p95_watched_actions_1d_click,
-      :video_p95_watched_actions_7d_click,
-      :video_p95_watched_actions_28d_click,
-      :video_p95_watched_actions_1d_view,
-      :video_p95_watched_actions_7d_view,
-      :video_p95_watched_actions_28d_view,
-      :video_p95_watched_actions,
-      :video_p95_watched_actions_1d_click_by_convs,
-      :video_p95_watched_actions_7d_click_by_convs,
-      :video_p95_watched_actions_28d_click_by_convs,
-      :video_p95_watched_actions_1d_view_by_convs,
-      :video_p95_watched_actions_7d_view_by_convs,
-      :video_p95_watched_actions_28d_view_by_convs,
-      :video_p95_watched_actions_total_by_convs,
-      :video_p100_watched_actions_1d_click,
-      :video_p100_watched_actions_7d_click,
-      :video_p100_watched_actions_28d_click,
-      :video_p100_watched_actions_1d_view,
-      :video_p100_watched_actions_7d_view,
-      :video_p100_watched_actions_28d_view,
-      :video_p100_watched_actions,
-      :video_p100_watched_actions_1d_click_by_convs,
-      :video_p100_watched_actions_7d_click_by_convs,
-      :video_p100_watched_actions_28d_click_by_convs,
-      :video_p100_watched_actions_1d_view_by_convs,
-      :video_p100_watched_actions_7d_view_by_convs,
-      :video_p100_watched_actions_28d_view_by_convs,
-      :video_p100_watched_actions_total_by_convs
+      :video_avg_pct_watched_actions, 
+      :video_avg_sec_watched_actions, 
+      :video_complete_watched_actions, 
+      :video_p25_watched_actions, 
+      :video_p50_watched_actions, 
+      :video_p75_watched_actions, 
+      :video_p95_watched_actions, 
+      :video_p100_watched_actions, 
+      :video_start_actions
     ]
-
+    
     DATA_COLUMNS = [
-      :clicks, #Total number of clicks
-      :cost_per_action_type, #Cost of each action type
-      :cost_per_total_action, #Cost of all actions
-      :cost_per_unique_click, #Cost of each unique click
-      :cpc, #Cost per click
-      :cpm, #Cost per impressions
-      :cpp, #Cost per 1000 people reached
-      :ctr, #Click-through rate
-      :frequency, #Average number of times each person saw the ad
-      :impressions, #Total number of times the ad was viewed
-      :reach, #Total number of unique people who saw the ad
-      :social_clicks, #Number of times the ad was clicked with social information
-      :social_impressions, # Not documened but we want it
-      :social_reach, #Number of unique people who saw the ad with social information
-      :spend, #Total amount spent on the ad. Note that this does not work with action breakdowns
-      :total_actions, #Total number of actions within 1 day of viewing or 28 days after clicking an ad
-      :total_actions_1d_click, #Total number of actions within 1 day of clicking an ad (by impression time)
-      :total_actions_1d_view, #Total number of actions within 1 day of viewing an ad (by impression time)
-      :total_actions_28d_click, #Total number of actions within 28 days of clicking an ad (by impression time)
-      :total_actions_28d_view, #Total number of actions within 28 days of viewing an ad (by impression time)
-      :total_actions_7d_click, #Total number of actions within 7 days of clicking an ad (by impression time)
-      :total_actions_7d_view, #Total number of actions within 7 days of viewing an ad (by impression time)
-      :total_unique_actions, #Total number of unique actions taken after viewing or clicking on the ad
-      :total_unique_actions_1d_click, #Total number of unique actions within 1 day of clicking an ad (by impression time)
-      :total_unique_actions_1d_view, #Total number of unique actions within 1 day of viewing an ad (by impression time
-      :total_unique_actions_28d_click, #Total number of unique actions within 28 days of clicking an ad
-      :total_unique_actions_28d_view, #Total number of unique actions within 28 days of viewing an ad (by impression time)
-      :total_unique_actions_7d_click, #Total number of unique actions within 7 days of clicking an ad (by impression time)
-      :total_unique_actions_7d_view, #Total number of unique actions within 7 days of viewing an ad (by impression time)
-      :unique_clicks, #Number of unique people who have clicked on the ad
-      :unique_ctr, #Number of people who clicked on the ad divided by the unique people reached
-      :unique_impressions, #Number unique people who saw the ad
-      :unique_social_clicks, #Number of unique people who have clicked on the ad with social context
-      :unique_social_impressions, #Number of unique people who have viewed the ad with social context
+      :deeplink_clicks, 
+      :app_store_clicks, 
+      :call_to_action_clicks, 
+      :clicks, 
+      :unique_clicks, 
+      :cost_per_action_type, 
+      :cost_per_result, 
+      :cost_per_total_action, 
+      :cpc, 
+      :cost_per_unique_click, 
+      :cpm, 
+      :cpp, 
+      :ctr, 
+      :unique_ctr, 
+      :frequency, 
+      :impressions, 
+      :unique_impressions, 
+      :objective, 
+      :performance_indicator, 
+      :product_id, 
+      :reach, 
+      :result_rate, 
+      :results, 
+      :relevance_score, 
+      :roas, 
+      :social_clicks, 
+      :unique_social_clicks, 
+      :social_impressions, 
+      :unique_social_impressions, 
+      :social_reach, 
+      :spend, 
+      :today_spend, 
+      :total_action_value, 
+      :total_actions, 
+      :total_unique_actions, 
+      :website_clicks, 
+      :website_ctr
     ]
 
     # Dimension + Column for Action reporting
@@ -211,14 +88,6 @@ module FbGraph
       :action_target_name,
       :action_type,
       :action_device # The device type on which off-Facebook actions were taken
-    ]
-
-    UNDOCUMENTED_DATA_COLUMNS = [
-      :adgroup_objective,
-      :campaign_group_ui_status,
-      :campaign_group_ui_status_name,
-      :campaign_ui_status,
-      :campaign_ui_status_name
     ]
 
     DATE_COLUMNS = [
