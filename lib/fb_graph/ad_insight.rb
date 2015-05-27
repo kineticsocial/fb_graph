@@ -105,7 +105,8 @@ module FbGraph
       :action_target_id,
       :action_target_name,
       :action_type,
-      :action_device # The device type on which off-Facebook actions were taken
+      :action_device, # The device type on which off-Facebook actions were taken
+      :action_video_type
     ]
 
     DATE_COLUMNS = [
@@ -122,7 +123,8 @@ module FbGraph
       :async_status,
       :async_percent_completion
     ]
-
+    
+    ALL_COLUMN_TYPES = DIMENSION_COLUMN_TYPES.merge(DATA_ACTION_TYPES).merge(VIDEO_ACTION_COLUMN_TYPES).merge(DATA_COLUMN_TYPES)
     ALL_COLUMNS = ACTION_COLUMNS + DIMENSION_COLUMNS + DATA_COLUMNS + DATE_COLUMNS + TIME_COLUMNS + ASYNC_STATUS_COLUMNS + DATA_ACTION_COLUMNS + VIDEO_ACTION_COLUMNS 
     ALL_DATA_COLUMNS = ACTION_COLUMNS + DIMENSION_COLUMNS + DATA_COLUMNS + ASYNC_STATUS_COLUMNS + DATA_ACTION_COLUMNS + VIDEO_ACTION_COLUMNS
 
